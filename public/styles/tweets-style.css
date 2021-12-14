@@ -1,0 +1,88 @@
+#tweets-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+article.tweet {
+  display: flex;
+  flex-direction: column;
+  border: 4px solid #5f5c53;
+  padding: 0.7em;
+  margin: 10px 0px;
+}
+
+article.tweet > header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  height: 3em;
+}
+
+article.tweet > header > h4 {
+  display: none;
+  color: #5f5c53;
+  font-size: 22px;
+}
+
+div.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  opacity: 0.7;
+}
+
+header > div.user > img {
+  height: 50px;
+}
+
+header > div.user > h3 {
+  margin-left: 10px;
+  font-size: 23px;
+}
+
+article.tweet > p {
+  overflow-wrap: break-word;
+  border-bottom: 4px solid #5f5c53;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 1em;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+article.tweet > footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: small;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+article.tweet > footer > div > i {
+  color: #4056a1;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+/* Change icon colors when hovered */
+article.tweet > footer > div > .fas:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+/*  */
+article.tweet:hover {
+  opacity: 1;
+  box-shadow: 8px 5px 6px #b2c1f3;
+}
+
+article.tweet > header > h4 {
+  display: flex;
+}
+article.tweet > header > div.user {
+  opacity: 1;
+}
