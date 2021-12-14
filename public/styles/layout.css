@@ -6,7 +6,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -18,8 +20,53 @@ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #f4f1ec;
+}
+
+.top-tweet {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 5px solid #5f5c53;
+  font-weight: 600;
+}
+.top-tweet > textarea {
+  height: 40px;
+  color: #5f5c53;
+  background-color: transparent;
+  border: none;
+  resize: none;
+  outline: none;
+}
+
+.bottom-tweet {
+  font-family: "Bungee";
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.bottom-tweet > button {
+  background-color: #4056a1;
+  font-size: 1em;
+  color: #ffffff;
+  border: 0;
+  height: 2.5rem;
+  width: 7rem;
+  box-shadow: 8px 5px 6px grey;
+}

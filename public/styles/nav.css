@@ -1,0 +1,49 @@
+/* nav {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  background-color: #4056a1;
+  color: #ffffff;
+  font-family: "Bungee", cursive;
+  padding: 1.5em 1.5em 0 1.5em;
+  z-index: 1;
+}
+
+.newTweet {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.newPost {
+  display: flex;
+  flex-direction: column;
+}
+
+.fas {
+  align-self: center;
+  color: tomato;
+} */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  background-color: #4056a1;
+  color: #ffffff;
+  font-family: "Bungee", cursive;
+  padding: 1.5em 1.5em 0 1.5em;
+  z-index: 1;
+}
+
+.newTweet {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.newPost {
+  display: flex;
+  flex-direction: column;
+}
+
+.fas {
+  align-self: center;
+  color: tomato;
+}
