@@ -1,4 +1,4 @@
-header {
+.profile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,4 +7,5 @@ header {
   background-color: #0070cca9;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   padding-top: 20px;
+  margin-top: 120px;
 }
