@@ -6,7 +6,7 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 
-const data = [
+const tweetsData = [
   {
     user: {
       name: "Newton",
@@ -63,5 +63,24 @@ $(document).ready(function () {
 </article>`;
     return $tweet;
   };
-  renderTweets(data);
+  renderTweets(tweetsData);
+});
+
+//Add an Event Listener and Prevent the Default Behaviour
+const $form = $(".submit-tweet");
+$form.on("submit", (event) => {
+  event.preventDefault();
+  let data = $(this).serialize();
+});
+
+$.ajax({
+  url: "http://localhost:8080/tweets",
+  method: "POST",
+  data: data,
+  success: (data) => {
+    console.log(data);
+  },
+  error: (err) => {
+    console.log(err);
+  },
 });
