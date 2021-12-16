@@ -40,8 +40,25 @@ $(document).ready(function () {
     }
   };
 
-  //creating tweet with user and content infor
+  //Add an Event Listener and Prevent the Default Behaviour
+  $("#submit-tweet").on("submit", function (event) {
+    event.preventDefault();
+    let data = $(this).serialize();
+    console.log(data);
+    $.ajax({
+      url: "/tweets",
+      method: "POST",
+      data: data,
+      success: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  });
 
+  //creating tweet with user and content infor
   const createTweetElement = function (tweet) {
     let $tweet = `<article class="tweet">
   <header>
@@ -64,23 +81,4 @@ $(document).ready(function () {
     return $tweet;
   };
   renderTweets(tweetsData);
-});
-
-//Add an Event Listener and Prevent the Default Behaviour
-const $form = $(".submit-tweet");
-$form.on("submit", (event) => {
-  event.preventDefault();
-  let data = $(this).serialize();
-});
-
-$.ajax({
-  url: "http://localhost:8080/tweets",
-  method: "POST",
-  data: data,
-  success: (data) => {
-    console.log(data);
-  },
-  error: (err) => {
-    console.log(err);
-  },
 });
