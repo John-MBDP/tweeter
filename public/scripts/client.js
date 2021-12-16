@@ -44,7 +44,6 @@ $(document).ready(function () {
   $("#submit-tweet").on("submit", function (event) {
     event.preventDefault();
     let data = $(this).serialize();
-    console.log(data);
     $.ajax({
       url: "/tweets",
       method: "POST",
