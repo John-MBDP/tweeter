@@ -63,6 +63,16 @@ $(document).ready(function () {
   $("#submit-tweet").on("submit", function (event) {
     event.preventDefault();
     let data = $(this).serialize();
+
+    $(".errorText").slideUp(400).text("");
+
+    if (!$(this).children().find("textarea").val()) {
+      return $(".errorText").text("Please enter a valid tweet").slideDown();
+    }
+    if ($(this).children().find("textarea").val().length > 140) {
+      return $(".errorText").text("Your Tweet exceeds the maximum characters").slideDown();
+    }
+
     $.ajax({
       url: "/tweets",
       method: "POST",
@@ -75,15 +85,6 @@ $(document).ready(function () {
         console.log(err);
       },
     });
-
-    if (!$(this).children().find("textarea").val()) {
-      // alert("Please enter a valid tweet");
-      return $(".errorText").text("Please enter a valid tweet").slideDown();
-    }
-    if ($(this).children().find("textarea").val().length > 140) {
-      // alert("Your tweet exceeds the maximum characters");
-      return $(".errorText").text("Your Tweet exceeds the maximum characters").slideDown();
-    }
   });
 
   //creating tweet with user and content infor
