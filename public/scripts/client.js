@@ -64,7 +64,7 @@ $(document).ready(function () {
     event.preventDefault();
     let data = $(this).serialize();
 
-    $(".errorText").slideUp(400).text("");
+    $(".errorText").slideUp().text("");
 
     if (!$(this).children().find("textarea").val()) {
       return $(".errorText").text("Please enter a valid tweet").slideDown();
@@ -72,6 +72,10 @@ $(document).ready(function () {
     if ($(this).children().find("textarea").val().length > 140) {
       return $(".errorText").text("Your Tweet exceeds the maximum characters").slideDown();
     }
+    //empty textArea
+    $(this).children().find("textarea").val("");
+    //refresh number of characters
+    $(".counter").text(140);
 
     $.ajax({
       url: "/tweets",
