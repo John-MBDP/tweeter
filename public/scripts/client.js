@@ -6,33 +6,48 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 
-const tweetsData = [
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac",
-    },
-    content: {
-      text: "If I have seen further it is by standing on the shoulders of giants",
-    },
-    created_at: 1461116232227,
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd",
-    },
-    content: {
-      text: "Je pense , donc je suis",
-    },
-    created_at: 1461113959088,
-  },
-];
+// const tweetsData = [
+//   {
+//     user: {
+//       name: "Newton",
+//       avatars: "https://i.imgur.com/73hZDYK.png",
+//       handle: "@SirIsaac",
+//     },
+//     content: {
+//       text: "If I have seen further it is by standing on the shoulders of giants",
+//     },
+//     created_at: 1461116232227,
+//   },
+//   {
+//     user: {
+//       name: "Descartes",
+//       avatars: "https://i.imgur.com/nlhLi3I.png",
+//       handle: "@rd",
+//     },
+//     content: {
+//       text: "Je pense , donc je suis",
+//     },
+//     created_at: 1461113959088,
+//   },
+// ];
 
 $(document).ready(function () {
-  //rendering all tweets on the page
+  //rendering all tweets on the page  // fetching tweets from the http://localhost:8080/tweets page
+  const loadTweets = function () {
+    $.ajax({
+      url: "http://localhost:8080/tweets",
+      method: "GET",
+      dataType: "json",
+      success: (tweets) => {
+        console.log(renderTweets(tweets));
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  };
+  loadTweets();
+
   const renderTweets = function (tweets) {
     for (const tweet of tweets) {
       const $tweet = $(createTweetElement(tweet));
@@ -79,5 +94,5 @@ $(document).ready(function () {
 </article>`;
     return $tweet;
   };
-  renderTweets(tweetsData);
+  renderTweets(loadTweets);
 });
