@@ -39,7 +39,9 @@ $(document).ready(function () {
       method: "GET",
       dataType: "json",
       success: (tweets) => {
-        console.log(renderTweets(tweets));
+        console.log(tweets);
+        //render tweets
+        renderTweets(tweets);
       },
       error: (err) => {
         console.log(err);
@@ -47,10 +49,12 @@ $(document).ready(function () {
     });
   };
   loadTweets();
-
+  //rendering all tweets on the page
   const renderTweets = function (tweets) {
+    $("#tweets-container").empty();
     for (const tweet of tweets) {
       const $tweet = $(createTweetElement(tweet));
+      //brings the tweet to the top
       $("#tweets-container").prepend($tweet);
     }
   };
@@ -65,11 +69,19 @@ $(document).ready(function () {
       data: data,
       success: (data) => {
         console.log(data);
+        loadTweets();
       },
       error: (err) => {
         console.log(err);
       },
     });
+
+    if (!$(this).children().find("textarea").val()) {
+      alert("Please enter a valid tweet");
+    }
+    if ($(this).children().find("textarea").val().length > 140) {
+      alert("Your tweet exceeds the maximum characters");
+    }
   });
 
   //creating tweet with user and content infor
@@ -94,5 +106,4 @@ $(document).ready(function () {
 </article>`;
     return $tweet;
   };
-  renderTweets(loadTweets);
 });
