@@ -82,3 +82,22 @@ body {
   align-items: center;
   color: red;
 }
+
+/* ---- media queries ---- */
+
+@media (min-width: 1024px) {
+  body {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  body > .profile {
+    width: 33%;
+    margin: 220px 0px 0px 3rem;
+    float: left;
+  }
+  .container {
+    width: 55%;
+    float: right;
+    margin: 200px 3rem 0px 0px;
+  }
+}
