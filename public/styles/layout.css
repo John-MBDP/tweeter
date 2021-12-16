@@ -75,3 +75,10 @@ body {
 .redText {
   color: red;
 }
+
+.errorText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
