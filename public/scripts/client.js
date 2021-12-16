@@ -86,15 +86,22 @@ $(document).ready(function () {
 
   //creating tweet with user and content infor
   const createTweetElement = function (tweet) {
+    //Preventing XSS with Escaping(Attacks)
+    const escape = function (str) {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+
     let $tweet = `<article class="tweet">
   <header>
     <div class="user">
-      <img src=${tweet.user.avatars} alt="">
-      <h3>${tweet.user.name}</h3>
+      <img src=${escape(tweet.user.avatars)} alt="">
+      <h3>${escape(tweet.user.name)}</h3>
     </div>
-    <h4>${tweet.user.handle}</h4>
+    <h4>${escape(tweet.user.handle)}</h4>
   </header>
-  <p>${tweet.content.text}</p>
+  <p>${escape(tweet.content.text)}</p>
   <footer>
   <span>${timeago.format(tweet.created_at)}</span>
     <div class="flag">
