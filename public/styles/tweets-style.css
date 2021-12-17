@@ -74,7 +74,7 @@ article.tweet > footer > div > .fas:hover {
   cursor: pointer;
 }
 
-/*  */
+/* Add box shadow effect when hovering tweets */
 article.tweet:hover {
   opacity: 1;
   box-shadow: 8px 5px 6px #b2c1f3;
